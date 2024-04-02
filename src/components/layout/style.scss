@@ -1,17 +1,57 @@
 .content-container {
-    padding: 15px;
-    padding-left: 45px;
-    padding-bottom: 50px;
+  padding: 15px;
+  padding-left: 45px;
+  padding-bottom: 50px;
+}
+.content-container-expanded {
+  padding: 15px;
+  padding-left: 8%;
+  padding-bottom: 50px;
+}
+.menus:hover {
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: #b8eaff;
+  padding-left: 10%;
+}
+.menu-item:hover {
+  background-color: #b8eaff !important;
+  // color: #21e298 !important;
+}
+.menu-item-title:hover {
+  background-color: #b8eaff !important;
+  color: green !important;
+}
+.menu-item-heading {
+  color: green !important;
 }
 
+.menu-item .active {
+  background-color: #b8eaff !important;
+  color: #21e298 !important;
+}
 @media (min-width: 992px) {
-    .content-container {
-      margin-left: 220px;
-    }
+  .content-container {
+    margin-left: 220px;
   }
-  
-  @media (max-width: 991px) {
-    .content-container {
-      margin-left: 0;
-    }
+}
+
+@media (max-width: 991px) {
+  .content-container {
+    margin-left: 0;
   }
+}
+@media screen and (max-width: 900px) and (min-width: 696px) {
+  .headerlogoImage {
+    width: 150%;
+    height: 150%;
+  }
+}
+@media screen and (max-width: 696px) and (min-width: 200px) {
+  .headerlogoImage {
+    width: 150%;
+    height: 150%;
+  }
+}

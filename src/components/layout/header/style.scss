@@ -1,11 +1,90 @@
 .app-header {
-    z-index: 3;
-    width: 100%;
-    height: 65px;
-    position: fixed;
-    padding-top: 4px;
-    margin-bottom: 6px;
-    background-color: #fff;
-    box-shadow: 0px 3px 6px #00000029;
+  z-index: 3;
+  width: 100%;
+  height: 65px;
+  position: relative;
+  position: fixed;
+  padding-top: 4px;
+  margin-bottom: 6px;
+  background-color: #fff;
+  box-shadow: 0px 3px 6px #00000029;
+  top: -1px !important;
 }
 
+.headerLogoutBtn {
+  border-left: 1px solid lightblue;
+  border-radius: 3%;
+  width: 100%;
+  text-align: center;
+  height: 86% !important;
+  overflow: hidden;
+}
+.headerBellIcon {
+  border-left: 1px solid lightblue;
+  border-radius: 3%;
+  width: 100%;
+  text-align: center;
+  height: 86% !important;
+  padding-left: 10px;
+}
+
+.userInformation {
+  margin-left: 0%;
+}
+.ant-dropdown-menu-item:hover {
+  // background-color: rgba(177, 255, 177, 0.63) !important;
+  background-color: #006640 !important;
+  color: white !important;
+}
+.ant-dropdown-menu-item-danger:hover {
+  background-color: rgb(255, 57, 57) !important;
+  color: white;
+}
+@media screen and (max-width: 1200px) and (min-width: 1024px) {
+  .companyInformation {
+    font-size: 11px;
+  }
+}
+@media screen and (max-width: 977px) and (min-width: 844px) {
+  .companyInformation {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 844px) and (min-width: 696px) {
+  .headerSections {
+    font-size: 10px;
+    width: 105%;
+  }
+  .companyInformation {
+    font-size: 12px;
+    padding-bottom: 10px;
+    margin-left: 2%;
+  }
+}
+@media screen and (max-width: 696px) and (min-width: 200px) {
+  .userInformation {
+    visibility: hidden;
+    display: none;
+  }
+  .companyInformation {
+    font-size: 12px;
+    margin-left: 15%;
+  }
+  .headerLogoutBtn {
+    border: 1px solid lightblue;
+    border-radius: 3%;
+    width: 100%;
+    text-align: center;
+    height: 86% !important;
+    overflow: hidden;
+  }
+  .headerBellIcon {
+    border: 1px solid lightblue;
+    border-radius: 3%;
+    width: 100%;
+    text-align: center;
+    height: 86% !important;
+    padding-left: 10px;
+  }
+}

@@ -46,7 +46,7 @@ export const useGetCompany = () => {
   });
 };
 
-export const useGetFinancialYear = (CompanyId: number | null) => () => {
+export const useGetFinancialYear = (CompanyId: number | null) => {
   return useQuery({
     enabled: !!CompanyId,
     queryKey: ['financial-year', CompanyId],
@@ -58,7 +58,7 @@ export const useGetFinancialYear = (CompanyId: number | null) => () => {
   });
 };
 
-export const useGetBranch = (CompanyId: number | null) => () => {
+export const useGetBranch = (CompanyId: number | null) => {
   return useQuery({
     enabled: !!CompanyId,
     queryKey: ['branch', CompanyId],

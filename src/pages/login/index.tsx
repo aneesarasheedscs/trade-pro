@@ -1,19 +1,20 @@
 import './style.scss';
-import { Form } from 'antd';
 import { size } from 'lodash';
 import { TUser } from './types';
-import { useEffect } from 'react';
+import { Col, Form, Row } from 'antd';
+import { useEffect, useState } from 'react';
 import { useLogin } from './queries';
 import CardWrapper from './CardWrapper';
 import { route } from '@/routes/constants';
 import { useNavigate } from 'react-router-dom';
 import { AntButton, AntInput } from '@/components';
 import { isTokenExpired } from '@/utils/isTokenExpired';
-import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { storedFinancialYear, storedUserDetail } from '@/utils/storageService';
+import { LockOutlined, UserOutlined, EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 
 function LoginPage() {
   const navigate = useNavigate();
+  const [type, setType] = useState(false);
 
   const { mutate, isError, isPending, isSuccess } = useLogin();
 
@@ -27,17 +28,20 @@ function LoginPage() {
       if (size(financialYearDetail) < 1) {
         window.location.href = window.location.origin + route.COMPANY_BRANCH_DETAIL;
       } else {
-        navigate(route.PURCHASE_ORDER);
+        navigate(route.APP_MENU);
       }
     }
   }, [isSuccess]);
+  const showPassword = () => {
+    setType(!type);
+  };
 
   return (
     <CardWrapper>
       <Form layout="vertical" onFinish={onFinish} initialValues={{ remember: true }}>
         <AntInput
           required
-          size="large"
+          size="middle"
           name="username"
           label="Username"
           prefix={<UserOutlined />}
@@ -46,16 +50,28 @@ function LoginPage() {
 
         <AntInput
           required
-          size="large"
+          size="middle"
           name="password"
-          type="password"
+          type={type ? 'string' : 'password'}
           label="Password"
           prefix={<LockOutlined />}
+          suffix={type ? <EyeInvisibleOutlined onClick={showPassword} /> : <EyeOutlined onClick={showPassword} />}
           placeholder="Enter password"
         />
 
         <Form.Item>
-          <AntButton size="large" label="Log In" htmlType="submit" isError={isError} isLoading={isPending} />
+          <Row justify={'center'}>
+            <Col span={4}>
+              <AntButton
+                className="btnColor"
+                label="Log In"
+                size="large"
+                htmlType="submit"
+                isError={isError}
+                isLoading={isPending}
+              />
+            </Col>
+          </Row>
         </Form.Item>
       </Form>
     </CardWrapper>

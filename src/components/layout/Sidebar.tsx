@@ -3,10 +3,11 @@ import { ReactNode } from 'react';
 
 const { Sider } = Layout;
 
-function Sidebar({ children }: TSidebar) {
+function Sidebar({ collapsed, children }: TSidebar) {
   return (
     <Sider
-      width={250}
+      // width={250}
+      width={collapsed ? 260 : 98}
       trigger={null}
       breakpoint="lg"
       collapsedWidth="0"
@@ -25,6 +26,6 @@ function Sidebar({ children }: TSidebar) {
   );
 }
 
-type TSidebar = { children?: ReactNode };
+type TSidebar = { collapsed: boolean; children?: ReactNode };
 
 export default Sidebar;
